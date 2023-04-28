@@ -19,7 +19,8 @@ void main() {
   grafo.printaArestas();
 }
 
-
+//tentando usar um tipo de teste para impedir de criar aresta com vertice
+//inexistente
 class Grafo{
   List<Vertice> vertices = [];
   List<Aresta> arestas = [];
