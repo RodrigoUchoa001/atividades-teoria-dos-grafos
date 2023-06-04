@@ -22,4 +22,4 @@ print("carregado", len(grafos), "grafos")
 #     print(grafos[i].vertices)
 
 # testando multigrafos
-grafo.saoMultigrafos(grafos)
+grafo.saoPseudografos(grafos)
