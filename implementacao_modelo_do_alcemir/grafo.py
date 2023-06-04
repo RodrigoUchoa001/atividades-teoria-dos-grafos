@@ -3,15 +3,34 @@ class Grafo:
         self.id = id
         self.vertices: list = vertices
         self.arestas: list = arestas
+        self.criarMatrizDeAdjacencia()
 
-# class OperacoesGrafo:
-#     def __init__(self, grafos :list[Grafo]):
-#         self.grafos = grafos
+    def criarMatrizDeAdjacencia(self):
+        self.matrizADJ = [[0 for _ in range(len(self.vertices))] for _ in range(len(self.vertices))]
+
+        for aresta in self.arestas:
+            origem = self.vertices.index(aresta[0])
+            destino = self.vertices.index(aresta[1])
+            # self.matrizADJ[origem][destino] = 1 
+            self.matrizADJ[origem][destino] = 1 if self.matrizADJ[origem][destino] == 0 else self.matrizADJ[origem][destino]+1
+
+            # self.matrizADJ[destino][origem] = 1 APENAS P/ GRAFO N DIRECIONADO
         
-def saoMultigrafos(grafos:list[Grafo]):
-    saoMultigrafos: list[bool] = [0 for _ in range(len(grafos))]
+            
 
-    for i in range(len(grafos)):
-        arestasRepetidas = []
         
+def saoMultigrafos(grafos: list[Grafo]):
+    saoMultigrafos: list[Grafo] = []
 
+    for grafo in grafos:
+        
+        for i in range(len(grafo.matrizADJ)):
+            for j in range(len(grafo.matrizADJ[i])):
+
+                if (grafo.matrizADJ[i][j]>1):
+                    saoMultigrafos.append(grafo)
+                    break
+        
+    print("dentre esses grafos, são multigrafos os com os seguintes IDs:") 
+    for grafo in saoMultigrafos:
+        print(grafo.id)
