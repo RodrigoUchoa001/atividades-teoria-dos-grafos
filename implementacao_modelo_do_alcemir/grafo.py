@@ -15,10 +15,8 @@ class Grafo:
             self.matrizADJ[origem][destino] = 1 if self.matrizADJ[origem][destino] == 0 else self.matrizADJ[origem][destino]+1
 
             # self.matrizADJ[destino][origem] = 1 APENAS P/ GRAFO N DIRECIONADO
-        
-            
 
-        
+    
 def saoMultigrafos(grafos: list[Grafo]):
     saoMultigrafos: list[Grafo] = []
 
@@ -33,4 +31,18 @@ def saoMultigrafos(grafos: list[Grafo]):
         
     print("dentre esses grafos, são multigrafos os com os seguintes IDs:") 
     for grafo in saoMultigrafos:
+        print(grafo.id)
+
+def saoPseudografos(grafos: list[Grafo]):
+    saoPseudografos: list[Grafo] = []
+
+    for grafo in grafos:
+
+        for i in range(len(grafo.matrizADJ)):
+            if (grafo.matrizADJ[i][i]>0):
+                    saoPseudografos.append(grafo)
+                    break
+        
+    print("dentre esses grafos, são pseudgrafos os com os seguintes IDs:") 
+    for grafo in saoPseudografos:
         print(grafo.id)
