@@ -16,5 +16,10 @@ for i in dados['graphs']:
         )
     )
 
+print("carregado", len(grafos), "grafos")
+
 # for i in range(len(grafos)):
 #     print(grafos[i].vertices)
+
+# testando multigrafos
+grafo.saoMultigrafos(grafos)
