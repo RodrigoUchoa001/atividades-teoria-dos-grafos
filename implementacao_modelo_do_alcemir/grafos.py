@@ -1,5 +1,6 @@
 import json
 import grafo
+import funcoes
 
 # TODO: colocar pra ler de um arquivo passado por parametro no terminal
 file = open('c:/Users/franr/Documents/uespi/periodo 7/teoria dos grafos/atividades-teoria-dos-grafos/implementacao_modelo_do_alcemir/graphs.json')
@@ -22,4 +23,4 @@ print("carregado", len(grafos), "grafos")
 #     print(grafos[i].vertices)
 
 # testando multigrafos
-grafo.saoPseudografos(grafos)
+funcoes.saoPseudografos(grafos)
