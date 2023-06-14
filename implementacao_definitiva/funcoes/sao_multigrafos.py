@@ -12,6 +12,7 @@ def saoMultigrafos(grafos: list[Grafo]):
                     saoMultigrafos.append(grafo)
                     break
         
-    print("dentre esses grafos, são multigrafos os com os seguintes IDs:") 
-    for grafo in saoMultigrafos:
-        print(grafo.id)
+    return saoMultigrafos
+    # print("dentre esses grafos, são multigrafos os com os seguintes IDs:") 
+    # for grafo in saoMultigrafos:
+    #     print(grafo.id)

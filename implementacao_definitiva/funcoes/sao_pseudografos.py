@@ -10,8 +10,9 @@ def saoPseudografos(grafos: list[Grafo]):
                     saoPseudografos.append(grafo)
                     break
         
-    print("dentre esses grafos, são pseudgrafos os com os seguintes IDs:") 
-    for grafo in saoPseudografos:
-        print(grafo.id)
+    return saoPseudografos
+    # print("dentre esses grafos, são pseudgrafos os com os seguintes IDs:") 
+    # for grafo in saoPseudografos:
+    #     print(grafo.id)
 
 
