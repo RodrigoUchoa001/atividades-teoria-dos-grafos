@@ -1,16 +1,18 @@
 import json
-import grafo
-import funcoes
+from classes.grafo import Grafo
+
+from funcoes.sao_multigrafos import saoMultigrafos
+from funcoes.sao_pseudografos import saoPseudografos
 
 # TODO: colocar pra ler de um arquivo passado por parametro no terminal
-file = open('c:/Users/franr/Documents/uespi/periodo 7/teoria dos grafos/atividades-teoria-dos-grafos/implementacao_modelo_do_alcemir/graphs.json')
+file = open('c:/Users/franr/Documents/uespi/periodo 7/teoria dos grafos/atividades-teoria-dos-grafos/implementacao_definitiva/graphs.json')
 dados = json.load(file)
 
-grafos: list[grafo.Grafo] = []
+grafos: list[Grafo] = []
 # aqui vou ter uma lista com todos os grafos em forma de objeto
 for i in dados['graphs']:
     grafos.append(
-        grafo.Grafo(
+        Grafo(
             i['id'],
             i['vertices'],
             i['edges'],
@@ -23,4 +25,4 @@ print("carregado", len(grafos), "grafos")
 #     print(grafos[i].vertices)
 
 # testando multigrafos
-funcoes.saoPseudografos(grafos)
+saoPseudografos(grafos)
