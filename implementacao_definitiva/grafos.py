@@ -4,6 +4,7 @@ from classes.grafo import Grafo
 from funcoes.sao_multigrafos import saoMultigrafos
 from funcoes.sao_pseudografos import saoPseudografos
 from funcoes.grau import grauDeVerticeEspecifico
+from funcoes.grau import grauDeTodosOsVertices
 
 # TODO: colocar pra ler de um arquivo passado por parametro no terminal
 file = open('c:/Users/franr/Documents/uespi/periodo 7/teoria dos grafos/atividades-teoria-dos-grafos/implementacao_definitiva/graphs.json')
@@ -26,7 +27,14 @@ print("carregado", len(grafos), "grafos")
 #     print(grafos[i].vertices)
 
 # testando multigrafos
-# saoPseudografos(grafos)
+# multigrafos = saoMultigrafos(grafos)
+# for i in range(len(multigrafos)):
+#     print(multigrafos[i].id)
 
 # testando grau de vértice especifico
-grauDeVerticeEspecifico(grafos[0], "B")
+# pseudografos = saoPseudografos(grafos)
+# for i in range(len(multigrafos)):
+#     print(multigrafos[i].id)
+
+# testando grau de todos os vértices
+# print(grauDeTodosOsVertices(grafos[0]))
