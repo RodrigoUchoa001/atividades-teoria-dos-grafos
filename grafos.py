@@ -5,9 +5,10 @@ from funcoes.sao_multigrafos import saoMultigrafos
 from funcoes.sao_pseudografos import saoPseudografos
 from funcoes.grau import grauDeVerticeEspecifico
 from funcoes.grau import grauDeTodosOsVertices
+from funcoes.sao_completos import sao_completos
 
 # TODO: colocar pra ler de um arquivo passado por parametro no terminal
-file = open('c:/Users/franr/Documents/uespi/periodo 7/teoria dos grafos/atividades-teoria-dos-grafos/implementacao_definitiva/graphs.json')
+file = open('c:/Users/franr/Documents/uespi/periodo 7/teoria dos grafos/atividades-teoria-dos-grafos/graphs.json')
 dados = json.load(file)
 
 grafos: list[Grafo] = []
@@ -38,3 +39,8 @@ print("carregado", len(grafos), "grafos")
 
 # testando grau de todos os vértices
 # print(grauDeTodosOsVertices(grafos[0]))
+
+# testando se sao completos
+completos = sao_completos(grafos)
+for completo in completos:
+   print(completo.id)
