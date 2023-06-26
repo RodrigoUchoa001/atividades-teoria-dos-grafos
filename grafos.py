@@ -6,6 +6,7 @@ from funcoes.sao_pseudografos import saoPseudografos
 from funcoes.grau import grauDeVerticeEspecifico
 from funcoes.grau import grauDeTodosOsVertices
 from funcoes.sao_completos import sao_completos
+from funcoes.ha_caminhos_bfs import ha_caminhos_bfs
 
 # TODO: colocar pra ler de um arquivo passado por parametro no terminal
 file = open('c:/Users/franr/Documents/uespi/periodo 7/teoria dos grafos/atividades-teoria-dos-grafos/graphs.json')
@@ -41,6 +42,11 @@ print("carregado", len(grafos), "grafos")
 # print(grauDeTodosOsVertices(grafos[0]))
 
 # testando se sao completos
-completos = sao_completos(grafos)
-for completo in completos:
-   print(completo.id)
+# completos = sao_completos(grafos)
+# for completo in completos:
+#    print(completo.id)
+
+# testando bfs
+caminhos = ha_caminhos_bfs(grafos, "A", "B")
+for caminho in caminhos:
+    print("id: ",caminho[0], ", caminho: ", caminho[1])
