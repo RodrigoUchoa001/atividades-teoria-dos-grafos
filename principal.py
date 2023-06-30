@@ -29,69 +29,94 @@ class FerramentaGrafos:
 
 
             elif comando[1] == "multigrafos":
-                multigrafos = saoMultigrafos(self.grafos)
-                print("dentre esses grafos, são multigrafos os com os seguintes IDs:") 
-                for grafo in multigrafos:
-                    print(grafo.id)
+                if self.existemGrafos():
+                    multigrafos = saoMultigrafos(self.grafos)
+                    print("dentre esses grafos, são multigrafos os com os seguintes IDs:") 
+                    for grafo in multigrafos:
+                        print(grafo.id)
+                else:
+                    self.exibeMsgSemGrafosCarregados()
+
             
 
             elif comando[1] == "pseudografos":
-                pseudografos = saoPseudografos(self.grafos)
-                print("dentre esses grafos, são pseudografos os com os seguintes IDs:") 
-                for grafo in pseudografos:
-                    print(grafo.id)
+                if self.existemGrafos():
+                    pseudografos = saoPseudografos(self.grafos)
+                    print("dentre esses grafos, são pseudografos os com os seguintes IDs:") 
+                    for grafo in pseudografos:
+                        print(grafo.id)
+                else:
+                    self.exibeMsgSemGrafosCarregados()
             
 
             elif comando[1] == "desconexos":
-                desconexos = saoDesconexos(self.grafos)
-                print("dentre esses grafos, são desconexos os com os seguintes IDs:") 
-                for grafo in desconexos:
-                    print(grafo.id)
+                if self.existemGrafos():
+                    desconexos = saoDesconexos(self.grafos)
+                    print("dentre esses grafos, são desconexos os com os seguintes IDs:") 
+                    for grafo in desconexos:
+                        print(grafo.id)
+                else:
+                    self.exibeMsgSemGrafosCarregados()
             
             
 
             elif comando[1] == "completos":
-                completos = saoCompletos(self.grafos)
-                print("dentre esses grafos, são completos os com os seguintes IDs:") 
-                for grafo in completos:
-                    print(grafo.id)
+                if self.existemGrafos():
+                    completos = saoCompletos(self.grafos)
+                    print("dentre esses grafos, são completos os com os seguintes IDs:") 
+                    for grafo in completos:
+                        print(grafo.id)
+                else:
+                    self.exibeMsgSemGrafosCarregados()
 
 
             elif len(comando) == 3 and comando[1] == "graus":
-                idGrafo = int(comando[2].split("=")[1])
+                if self.existemGrafos():
+                    idGrafo = int(comando[2].split("=")[1])
 
-                listaDeGraus = grauDeTodosOsVertices(self.grafos[idGrafo-1])
-                print("Esse grafo tem os seguintes graus em cada vértice:")
-                for i in range(len(listaDeGraus)):
-                    print(self.grafos[idGrafo-1].vertices[i]," - ", listaDeGraus[i])
+                    listaDeGraus = grauDeTodosOsVertices(self.grafos[idGrafo-1])
+                    print("Esse grafo tem os seguintes graus em cada vértice:")
+                    for i in range(len(listaDeGraus)):
+                        print(self.grafos[idGrafo-1].vertices[i]," - ", listaDeGraus[i])
+                else:
+                    self.exibeMsgSemGrafosCarregados()
             
 
             elif len(comando) == 4 and comando[1] == "grau":
-                idGrafo = int(comando[2].split("=")[1])
-                verticeGrafo = comando[3].split("=")[1].strip("'").strip('"')
+                if self.existemGrafos():
+                    idGrafo = int(comando[2].split("=")[1])
+                    verticeGrafo = comando[3].split("=")[1].strip("'").strip('"')
 
-                grau = grauDeVerticeEspecifico(self.grafos[idGrafo-1], verticeGrafo)
-                print("o grau do vértice ",verticeGrafo," desse grafo é ",grau)
+                    grau = grauDeVerticeEspecifico(self.grafos[idGrafo-1], verticeGrafo)
+                    print("o grau do vértice ",verticeGrafo," desse grafo é ",grau)
+                else:
+                    self.exibeMsgSemGrafosCarregados()
             
 
             elif len(comando) == 3 and comando[1]=='alcancaveis':
-                verticeInicial = comando[2].split("=")[1].strip("'").strip('"')
+                if self.existemGrafos():
+                    verticeInicial = comando[2].split("=")[1].strip("'").strip('"')
 
-                alcancaveis = haVerticesAlcancaveis(self.grafos, verticeInicial)
-                for i in range(len(alcancaveis)):
-                    # a linha abaixo faz aparecer a msg 'nenhum' caso n haja vertices alcancaveis
-                    verticesAlcancaveis = alcancaveis[i] if alcancaveis[i] else 'nenhum'
-                    print("os vertices alcancaveis no grafo ",i+1," a partir de ",verticeInicial," são: ",verticesAlcancaveis,"\n")
+                    alcancaveis = haVerticesAlcancaveis(self.grafos, verticeInicial)
+                    for i in range(len(alcancaveis)):
+                        # a linha abaixo faz aparecer a msg 'nenhum' caso n haja vertices alcancaveis
+                        verticesAlcancaveis = alcancaveis[i] if alcancaveis[i] else 'nenhum'
+                        print("os vertices alcancaveis no grafo ",i+1," a partir de ",verticeInicial," são: ",verticesAlcancaveis,"\n")
+                else:
+                    self.exibeMsgSemGrafosCarregados()
 
             
             elif len(comando) == 3 and comando[1]=='inalcancaveis':
-                verticeInicial = comando[2].split("=")[1].strip("'").strip('"')
+                if self.existemGrafos():
+                    verticeInicial = comando[2].split("=")[1].strip("'").strip('"')
 
-                inalcancaveis = haVerticesInalcancaveis(self.grafos, verticeInicial)
-                for i in range(len(inalcancaveis)):
-                    # a linha abaixo faz aparecer a msg 'nenhum' caso n haja vertices inalcancaveis
-                    verticesInalcancaveis = inalcancaveis[i] if inalcancaveis[i] else 'nenhum'
-                    print("os vertices inalcancaveis no grafo ",i+1," a partir de ",verticeInicial," são: ",verticesInalcancaveis,"\n")
+                    inalcancaveis = haVerticesInalcancaveis(self.grafos, verticeInicial)
+                    for i in range(len(inalcancaveis)):
+                        # a linha abaixo faz aparecer a msg 'nenhum' caso n haja vertices inalcancaveis
+                        verticesInalcancaveis = inalcancaveis[i] if inalcancaveis[i] else 'nenhum'
+                        print("os vertices inalcancaveis no grafo ",i+1," a partir de ",verticeInicial," são: ",verticesInalcancaveis,"\n")
+                else:
+                    self.exibeMsgSemGrafosCarregados()
             
 
             elif len(comando) == 5 and comando[1] == 'bfs':
@@ -109,6 +134,15 @@ class FerramentaGrafos:
             
         else:
             print("\nComando não reconhecido, verifique se o comando foi digitado corretamente.")
+    
+    def existemGrafos(self):
+        if self.grafos:
+            return True
+        else:
+            return False
+    
+    def exibeMsgSemGrafosCarregados(self):
+        print("primeiro carregue um json com grafos!")
 
 
 ferramentaGrafos = FerramentaGrafos()
