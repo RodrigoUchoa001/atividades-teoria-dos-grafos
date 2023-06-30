@@ -43,6 +43,14 @@ class FerramentaGrafos:
                 print("Esse grafo tem os seguintes graus em cada vértice:")
                 for i in range(len(listaDeGraus)):
                     print(self.grafos[idGrafo-1].vertices[i]," - ", listaDeGraus[i])
+            
+            elif len(comando) == 4 and comando[1] == 'grau':
+                idGrafo = int(comando[2].split('=')[1])
+                verticeGrafo = comando[3].split('=')[1].strip("'").strip('"')
+
+                grau = grauDeVerticeEspecifico(self.grafos[idGrafo-1], verticeGrafo)
+                print("o grau do vértice ",verticeGrafo," desse grafo é ",grau)
+
 
 
             
