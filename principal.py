@@ -31,12 +31,25 @@ class FerramentaGrafos:
                 for grafo in multigrafos:
                     print(grafo.id)
             
+
             elif comando[1] == "pseudografos":
                 pseudografos = saoPseudografos(self.grafos)
                 print("dentre esses grafos, são pseudografos os com os seguintes IDs:") 
                 for grafo in pseudografos:
                     print(grafo.id)
             
+
+            elif comando[1] == "desconexos":
+                print("BREVE")
+            
+
+            elif comando[1] == "completos":
+                saoCompletos = sao_completos(self.grafos)
+                print("dentre esses grafos, são completos os com os seguintes IDs:") 
+                for grafo in saoCompletos:
+                    print(grafo.id)
+
+
             elif len(comando) == 3 and comando[1] == "graus":
                 idGrafo = int(comando[2].split("=")[1])
 
@@ -45,6 +58,7 @@ class FerramentaGrafos:
                 for i in range(len(listaDeGraus)):
                     print(self.grafos[idGrafo-1].vertices[i]," - ", listaDeGraus[i])
             
+
             elif len(comando) == 4 and comando[1] == "grau":
                 idGrafo = int(comando[2].split("=")[1])
                 verticeGrafo = comando[3].split("=")[1].strip("'").strip('"')
@@ -52,11 +66,9 @@ class FerramentaGrafos:
                 grau = grauDeVerticeEspecifico(self.grafos[idGrafo-1], verticeGrafo)
                 print("o grau do vértice ",verticeGrafo," desse grafo é ",grau)
             
-            elif comando[1] == "completos":
-                saoCompletos = sao_completos(self.grafos)
-                print("dentre esses grafos, são completos os com os seguintes IDs:") 
-                for grafo in saoCompletos:
-                    print(grafo.id)
+
+            
+
 
 
 
