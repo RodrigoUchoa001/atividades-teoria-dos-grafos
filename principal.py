@@ -119,8 +119,20 @@ class FerramentaGrafos:
                     self.exibeMsgSemGrafosCarregados()
             
 
-            elif len(comando) == 5 and comando[1] == 'bfs':
-                print("BREVE")
+            elif len(comando) == 4 and comando[1] == 'bfs':
+                if self.existemGrafos():
+                    partida = comando[2].split('=')[1].strip('"')
+                    chegada = comando[3].split('=')[1].strip('"')
+
+                    caminhoBfs = haCaminhoBfs(self.grafos, partida, chegada)
+
+                    print("BFS")
+                    for caminho in caminhoBfs:
+                        print("o caminho do vértice ",partida," até o vértice ",chegada," no grafo de ID ",caminho[0]," é ",caminho[1])
+                
+                else:
+                    self.exibeMsgSemGrafosCarregados()
+
 
 
             elif len(comando) == 5 and comando[1] == 'dfs':
