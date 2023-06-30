@@ -51,7 +51,7 @@ class FerramentaGrafos:
             elif comando[1] == "completos":
                 completos = saoCompletos(self.grafos)
                 print("dentre esses grafos, são completos os com os seguintes IDs:") 
-                for grafo in saoCompletos:
+                for grafo in completos:
                     print(grafo.id)
 
 
@@ -72,9 +72,20 @@ class FerramentaGrafos:
                 print("o grau do vértice ",verticeGrafo," desse grafo é ",grau)
             
 
+            elif len(comando) == 4 and comando[1]=='alcancaveis':
+                print("BREVE")
+
+            
+            elif len(comando) == 4 and comando[1]=='inalcancaveis':
+                print("BREVE")
             
 
+            elif len(comando) == 5 and comando[1] == 'bfs':
+                print("BREVE")
 
+
+            elif len(comando) == 5 and comando[1] == 'dfs':
+                print("BREVE")
 
 
 
