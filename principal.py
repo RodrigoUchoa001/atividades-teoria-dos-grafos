@@ -153,10 +153,10 @@ class FerramentaGrafos:
 
 
             else:
-                print("Comando não reconhecido")
+                print("comando digitado incorretamente! tente novamente")
             
         else:
-            print("Comando não reconhecido")
+            print("comando digitado incorretamente! tente novamente")
     
     def existemGrafos(self):
         return True if self.grafos else False
@@ -170,7 +170,10 @@ ferramentaGrafos = FerramentaGrafos()
 while ferramentaGrafos.continuarPrograma:
     comando = str(input("\n> "))
     comandoAtual = comando.split()
-    ferramentaGrafos.reconhecerComando(comandoAtual)
+    try:
+        ferramentaGrafos.reconhecerComando(comandoAtual)
+    except:
+        print("comando digitado incorretamente! tente novamente")
 
 
 
