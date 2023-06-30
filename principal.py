@@ -4,6 +4,7 @@ from funcoes.sao_pseudografos import saoPseudografos
 from funcoes.grau import grauDeTodosOsVertices, grauDeVerticeEspecifico
 from funcoes.sao_completos import saoCompletos
 from funcoes.sao_desconexos import saoDesconexos
+from funcoes.ha_vertices_alcancaveis import haVerticesAlcancaveis
 
 print("FERRAMENTA GRAFOS \nInsira um comando")
 
@@ -72,8 +73,12 @@ class FerramentaGrafos:
                 print("o grau do vértice ",verticeGrafo," desse grafo é ",grau)
             
 
-            elif len(comando) == 4 and comando[1]=='alcancaveis':
-                print("BREVE")
+            elif len(comando) == 3 and comando[1]=='alcancaveis':
+                verticeInicial = comando[2].split("=")[1].strip("'").strip('"')
+
+                alcancaveis = haVerticesAlcancaveis(self.grafos, verticeInicial)
+                for i in range(len(alcancaveis)):
+                    print("os vertices alcancaveis no grafo ",i+1," a partir de ",verticeInicial," são: , ",alcancaveis[i],"\n\n")
 
             
             elif len(comando) == 4 and comando[1]=='inalcancaveis':
