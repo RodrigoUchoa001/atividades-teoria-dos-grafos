@@ -3,7 +3,6 @@ from classes.grafo import Grafo
 def grauDeTodosOsVertices(grafo: Grafo):
     listaDeGraus = []
     for vertice in grafo.vertices:
-        print(vertice)
         # listaDeGraus.append((vertice, grauDeVerticeEspecifico(grafo, vertice)))
         listaDeGraus.append(grauDeVerticeEspecifico(grafo, vertice))
 
