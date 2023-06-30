@@ -2,7 +2,8 @@ from funcoes.carregar_grafos import carregarGrafos
 from funcoes.sao_multigrafos import saoMultigrafos
 from funcoes.sao_pseudografos import saoPseudografos
 from funcoes.grau import grauDeTodosOsVertices, grauDeVerticeEspecifico
-from funcoes.sao_completos import sao_completos
+from funcoes.sao_completos import saoCompletos
+from funcoes.sao_desconexos import saoDesconexos
 
 print("FERRAMENTA GRAFOS \nInsira um comando")
 
@@ -40,7 +41,11 @@ class FerramentaGrafos:
             
 
             elif comando[1] == "desconexos":
-                print("BREVE")
+                desconexos = saoDesconexos(self.grafos)
+                print("dentre esses grafos, são desconexos os com os seguintes IDs:") 
+                for grafo in desconexos:
+                    print(grafo.id)
+            
             
 
             elif comando[1] == "completos":
