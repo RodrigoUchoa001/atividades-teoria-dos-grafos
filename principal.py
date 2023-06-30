@@ -52,7 +52,11 @@ class FerramentaGrafos:
                 grau = grauDeVerticeEspecifico(self.grafos[idGrafo-1], verticeGrafo)
                 print("o grau do vértice ",verticeGrafo," desse grafo é ",grau)
             
-            # elif comando == "completos":
+            elif comando[1] == "completos":
+                saoCompletos = sao_completos(self.grafos)
+                print("dentre esses grafos, são completos os com os seguintes IDs:") 
+                for grafo in saoCompletos:
+                    print(grafo.id)
 
 
 
