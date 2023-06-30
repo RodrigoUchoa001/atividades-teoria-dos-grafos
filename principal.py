@@ -5,6 +5,7 @@ from funcoes.grau import grauDeTodosOsVertices, grauDeVerticeEspecifico
 from funcoes.sao_completos import saoCompletos
 from funcoes.sao_desconexos import saoDesconexos
 from funcoes.ha_vertices_alcancaveis import haVerticesAlcancaveis
+from funcoes.ha_vertices_inalcancaveis import haVerticesInalcancaveis
 
 print("FERRAMENTA GRAFOS \nInsira um comando")
 
@@ -78,11 +79,19 @@ class FerramentaGrafos:
 
                 alcancaveis = haVerticesAlcancaveis(self.grafos, verticeInicial)
                 for i in range(len(alcancaveis)):
-                    print("os vertices alcancaveis no grafo ",i+1," a partir de ",verticeInicial," são: , ",alcancaveis[i],"\n\n")
+                    # a linha abaixo faz aparecer a msg 'nenhum' caso n haja vertices alcancaveis
+                    verticesAlcancaveis = alcancaveis[i] if alcancaveis[i] else 'nenhum'
+                    print("os vertices alcancaveis no grafo ",i+1," a partir de ",verticeInicial," são: ",verticesAlcancaveis,"\n")
 
             
-            elif len(comando) == 4 and comando[1]=='inalcancaveis':
-                print("BREVE")
+            elif len(comando) == 3 and comando[1]=='inalcancaveis':
+                verticeInicial = comando[2].split("=")[1].strip("'").strip('"')
+
+                inalcancaveis = haVerticesInalcancaveis(self.grafos, verticeInicial)
+                for i in range(len(inalcancaveis)):
+                    # a linha abaixo faz aparecer a msg 'nenhum' caso n haja vertices inalcancaveis
+                    verticesInalcancaveis = inalcancaveis[i] if inalcancaveis[i] else 'nenhum'
+                    print("os vertices inalcancaveis no grafo ",i+1," a partir de ",verticeInicial," são: ",verticesInalcancaveis,"\n")
             
 
             elif len(comando) == 5 and comando[1] == 'bfs':
