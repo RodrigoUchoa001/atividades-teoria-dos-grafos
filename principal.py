@@ -44,7 +44,7 @@ class FerramentaGrafos:
             
 
             elif comando[1] == "completos":
-                saoCompletos = sao_completos(self.grafos)
+                completos = saoCompletos(self.grafos)
                 print("dentre esses grafos, são completos os com os seguintes IDs:") 
                 for grafo in saoCompletos:
                     print(grafo.id)
