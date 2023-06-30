@@ -6,6 +6,9 @@ from funcoes.sao_completos import saoCompletos
 from funcoes.sao_desconexos import saoDesconexos
 from funcoes.ha_vertices_alcancaveis import haVerticesAlcancaveis
 from funcoes.ha_vertices_inalcancaveis import haVerticesInalcancaveis
+from funcoes.ha_caminhos_bfs import haCaminhoBfs
+from funcoes.ha_caminhos_dfs import haCaminhoDfs
+
 
 print("FERRAMENTA GRAFOS \nInsira um comando")
 
@@ -134,24 +137,29 @@ class FerramentaGrafos:
                     self.exibeMsgSemGrafosCarregados()
 
 
+            elif len(comando) == 4 and comando[1] == 'dfs':
+                if self.existemGrafos():
+                    partida = comando[2].split('=')[1].strip('"')
+                    chegada = comando[3].split('=')[1].strip('"')
 
-            elif len(comando) == 5 and comando[1] == 'dfs':
-                print("BREVE")
+                    caminhoDfs = haCaminhoDfs(self.grafos, partida, chegada)
+
+                    print("DFS")
+                    for caminho in caminhoDfs:
+                        print("o caminho do vértice ",partida," até o vértice ",chegada," no grafo de ID ",caminho[0]," é ",caminho[1])
+                
+                else:
+                    self.exibeMsgSemGrafosCarregados()
 
 
-
-            
             else:
-                print("\nComando não reconhecido, verifique se o comando foi digitado corretamente.")
+                print("Comando não reconhecido")
             
         else:
-            print("\nComando não reconhecido, verifique se o comando foi digitado corretamente.")
+            print("Comando não reconhecido")
     
     def existemGrafos(self):
-        if self.grafos:
-            return True
-        else:
-            return False
+        return True if self.grafos else False
     
     def exibeMsgSemGrafosCarregados(self):
         print("primeiro carregue um json com grafos!")
