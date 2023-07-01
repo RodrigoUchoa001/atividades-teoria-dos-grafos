@@ -3,13 +3,14 @@ from funcoes.ha_vertices_alcancaveis import haVerticesAlcancaveis
 
 
 def haVerticesInalcancaveis(grafos: list[Grafo], verticeInicial):
-    haVerticesInalcancaveis = []
+    verticesInalcancaveis = []
 
-    alcancaveis = haVerticesAlcancaveis(grafos, verticeInicial)
+    verticesAlcancaveis = haVerticesAlcancaveis(grafos, verticeInicial)
 
-    for i in range(len(alcancaveis)):
-        if alcancaveis[i]:
-            inalcancaveis = set(grafos[i].vertices) - alcancaveis[i]
-            haVerticesInalcancaveis.append(inalcancaveis)
+    for i in range(len(verticesAlcancaveis)):
+        todosVertices = set(grafos[i].vertices)
+        
+        verticesInalcancaveisDesseGrafo = todosVertices - set(verticesAlcancaveis[i])
+        verticesInalcancaveis.append(verticesInalcancaveisDesseGrafo)
     
-    return haVerticesInalcancaveis
+    return verticesInalcancaveis
